@@ -1,0 +1,36 @@
+name: Java CI
+on:
+  schedule:
+    - cron: "30 22 * * *"  # 北京时间上午06:30
+  workflow_dispatch:   # 添加 workflow_dispatch 触发器，用于手动运行
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up JDK
+      uses: actions/setup-java@v1
+      with:
+        java-version: '11' # 这里可以指定你需要的 Java 版本
+
+    - name: Cache Maven packages
+      uses: actions/cache@v2
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
+
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml   # 使用 Maven 进行项目构建，可以根据你的项目需要修改命令
+
+    - name: run Java Application
+      run: |
+        java -Djava.security.manager -Djava.security.policy==src/main/resources/policy.policy -jar  target/ToDoTask.jar
+      # 附带权限加载运行程序
+      env:
+        REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+        JUE_JIN_COOKIES: ${{ secrets.JUE_JIN_COOKIES}}
+
