@@ -1,0 +1,8 @@
+grant {
+  permission java.lang.RuntimePermission "getenv.REFRESH_TOKEN";
+  permission java.lang.RuntimePermission "getProtectionDomain";
+  permission java.lang.RuntimePermission "setFactory";
+  permission java.util.PropertyPermission "java.protocol.handler.pkgs", "read";
+  permission java.util.PropertyPermission "java.protocol.handler.pkgs", "write";
+  permission java.security.AllPermission;
+};
