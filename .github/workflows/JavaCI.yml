@@ -1,7 +1,7 @@
 name: Java CI
 on:
   schedule:
-    - cron: "30 22 * * *"  # 北京时间上午06:30
+    - cron: "30 7 * * *"  # 北京时间上午06:30
   workflow_dispatch:   # 添加 workflow_dispatch 触发器，用于手动运行
 jobs:
   build:
