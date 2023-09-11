@@ -6,8 +6,8 @@ import java.io.IOException;
 
 public class ToDoTask {
 
-    private static final String refresh_token = "REFRESH_TOKEN";//阿里云盘签到的refresh_token
-    private static final String JUE_JIN_COOKIES = System.getenv("JUE_JIN_COOKIES");;//自己的掘金cookies
+    private static final String refresh_token = System.getenv("REFRESH_TOKEN");//阿里云盘签到的refresh_token
+    private static final String JUE_JIN_COOKIES = System.getenv("JUE_JIN_COOKIES");//自己的掘金cookies
 
     public static void main(String[] args) {
         System.out.println("阿里云盘签到****************************");
