@@ -70,6 +70,7 @@ public class aLi {
                 HttpEntity<String> rewardDateEntity = new HttpEntity<String>(rewardDate.toJSONString(), headers);
                 ResponseEntity<String> rewardDateRep = null;
                 JSONObject rewardListDateRep = null;
+                /*
                 try {
                    // rewardDateRep = re.postForEntity(rewardURL, rewardDateEntity, String.class);
                   //  rewardListDateRep = JSONObject.parseObject(rewardDateRep.getBody());
@@ -86,6 +87,7 @@ public class aLi {
                     System.out.println(sb);
                     return;
                 }
+                */
             }
         }
         sb.append("------------------当天已领取奖励-------------------" + "\n");
